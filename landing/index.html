@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>W&M Sports Analytics</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="topbar">
+    <img src="../assets/wm_football_logo.png" alt="W&M logo" class="topbar-logo">
+  </div>
+
+  <div class="container">
+    <h1 class="page-title">W&amp;M Sports Analytics</h1>
+
+    <div class="slideshow-wrapper">
+      <div class="slideshow" aria-hidden="false">
+        <img src="../assets/FF1.jpg" class="slide active" alt="Zable 1">
+        <img src="../assets/FF2.jpg" class="slide" alt="Zable 2">
+        <img src="../assets/FF3.jpg" class="slide" alt="Zable 3">
+        <img src="../assets/FF4.jpg" class="slide" alt="Zable 4">
+      </div>
+    </div>
+
+    <div class="choices">
+      <a class="choice" id="richmond" href="http://localhost:8051/richmond">Richmond Analysis</a>
+      <a class="choice" id="wm" href="http://localhost:8051/wm">William &amp; Mary Analysis</a>
+    </div>
+
+    <div class="controls">
+      <button id="prev" aria-label="Previous">◀</button>
+      <button id="next" aria-label="Next">▶</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

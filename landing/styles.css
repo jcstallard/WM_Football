@@ -1,0 +1,32 @@
+/* Styles for landing/index.html */
+:root{
+  --wm-green:#154734;
+  --wm-gold:#f1b120;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Segoe UI,Roboto,Arial,sans-serif}
+.container{position:relative;height:100vh;overflow:hidden;background:#000}
+.topbar{position:fixed;left:0;right:0;top:0;height:72px;background:var(--wm-green);display:flex;align-items:center;justify-content:center;z-index:30}
+.topbar-logo{height:48px}
+
+.container{position:relative;height:100vh;overflow:hidden;background:#0b0b0b;padding-top:92px}
+.page-title{text-align:center;color:var(--wm-gold);margin:18px 0 6px 0;font-size:2.4rem}
+
+.slideshow-wrapper{max-width:1000px;width:86%;margin:0 auto;border-radius:12px;border:4px solid rgba(255,255,255,0.95);overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.45);height:52vh}
+.slideshow{position:relative;width:100%;height:100%}
+.slide{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1s ease-in-out, transform 1s ease-in-out;transform-origin:center center}
+.slide.active{opacity:1;transform:scale(0.92)}
+
+.choices{margin-top:22px;display:flex;gap:24px;justify-content:center;pointer-events:auto}
+.choice{display:inline-flex;align-items:center;justify-content:center;min-width:220px;padding:18px 26px;background:rgba(255,255,255,0.95);color:var(--wm-green);text-decoration:none;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,0.25);font-weight:700}
+.choice:hover{transform:translateY(-4px);box-shadow:0 12px 24px rgba(0,0,0,0.28)}
+.controls{position:fixed;right:12px;bottom:12px;display:flex;gap:8px;pointer-events:auto;z-index:40}
+.controls button{background:rgba(0,0,0,0.45);color:#fff;border:0;padding:10px 12px;border-radius:8px;font-size:16px;cursor:pointer}
+.controls button:hover{background:rgba(0,0,0,0.6)}
+@media (max-width:720px){.overlay h1{font-size:2rem}.choices{flex-direction:column;margin-top:55vh}}
+@media (max-width:720px){
+  .slideshow-wrapper{height:34vh;width:92%;margin-top:6px}
+  .page-title{font-size:1.6rem}
+  .topbar{height:64px}
+  .topbar-logo{height:40px}
+}

@@ -1,0 +1,44 @@
+/* Offensive section: green bg with gold text */
+#offense-section {
+  background: linear-gradient(to bottom, #006341 0%, #004d29 100%);
+  color: #FFC72C;
+  padding: 20px;
+  transition: background 1.5s ease, color 1.5s ease;
+}
+
+/* Defense section: gold bg, green text */
+#defense-section {
+  background: linear-gradient(to bottom, #FFC72C 0%, #b38f1c 100%);
+  color: #006341;
+  padding: 20px;
+  transition: background 1.5s ease, color 1.5s ease;
+}
+
+body {
+  transition: background-color 0.8s ease, color 0.8s ease;
+  background-color: #0B2F1A;
+  color: #FFC72C;
+}
+
+body.scrolled {
+  background-color: #FFC72C;
+  color: #0B2F1A;
+}
+
+body.scrolled #offense-section {
+  opacity: 0;
+  pointer-events: none;
+}
+
+body.scrolled #defense-section {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Defensive dropdown and table backgrounds */
+#defense-section .dash-dropdown,
+#defense-section .dash-table-container {
+  background-color: white;
+  color: black;
+}
+
