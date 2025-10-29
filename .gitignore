@@ -1,19 +1,35 @@
 # Python / virtual env
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.env
+.env
 venv/
 env/
 ENV/
-*.py[cod]
-__pycache__/
+*.egg-info/
+dist/
+build/
 
-# Data and exports (do NOT commit large datasets)
-*.csv
-*.xlsx
-*.xls
+# Data and exports (ignore most large datasets, but allow specific files)
+# Note: we explicitly allow RU_data.csv and spring_data.xlsx below
 *.xlsb
 *.db
 *.sqlite
-spring_data*
-RU_data.csv
+*.zip
+*.tar.gz
+*.tar
+*.7z
+
+# Keep the following from being generally ignored, but allow the two files we need
+# (negate after the pattern)
+*.csv
+*.xlsx
+
+# explicitly track these two files
+!RU_data.csv
+!spring_data.xlsx
 
 # IDE / OS
 .vscode/
