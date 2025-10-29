@@ -42,6 +42,27 @@ except ImportError:
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 server = app.server
 
+# Serve the landing page and its files from the same process so Render can host one service.
+# This returns landing/index.html at root and serves landing/* and /assets/* files.
+import os
+from flask import send_from_directory, redirect
+
+LANDING_DIR = os.path.join(os.path.dirname(__file__), 'landing')
+ASSETS_DIR = os.path.join(os.path.dirname(__file__), 'assets')
+
+@server.route('/')
+def _serve_root_landing():
+	# Serve landing index as the public root
+	return send_from_directory(LANDING_DIR, 'index.html')
+
+@server.route('/landing/<path:fname>')
+def _serve_landing_file(fname):
+	return send_from_directory(LANDING_DIR, fname)
+
+@server.route('/assets/<path:fname>')
+def _serve_assets(fname):
+	return send_from_directory(ASSETS_DIR, fname)
+
 # Base layout placeholders: ensure `app.layout` is not None when server starts.
 # The callbacks in this file populate `sidebar-container`, `sidebar-open-btn`, and
 # `page-content-container` based on the URL and sidebar state.
@@ -1444,7 +1465,6 @@ def update_success_vs_gain_wm(down, distance, main_concept, tag):
             ),
             annotations=[dict(
                 text="No plays found for selected filters.",
-                              
                 xref="paper", yref="paper",
                 showarrow=False,
                 font=dict(size=18, color=WM_GOLD)
