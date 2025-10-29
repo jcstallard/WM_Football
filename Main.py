@@ -1444,7 +1444,8 @@ def update_success_vs_gain_wm(down, distance, main_concept, tag):
             ),
             annotations=[dict(
                 text="No plays found for selected filters.",
-                               xref="paper", yref="paper",
+                              
+                xref="paper", yref="paper",
                 showarrow=False,
                 font=dict(size=18, color=WM_GOLD)
             )]
@@ -1695,5 +1696,9 @@ def update_down_dropdown(current_value):
 
 # Keep only ONE main guard and no stray code below it.
 if __name__ == "__main__":
-    app.run(debug=True, port=8051)
+	import os
+	# Use PORT env var if present (platforms like Render / Heroku set this)
+	port = int(os.environ.get("PORT", 8051))
+	# Bind to 0.0.0.0 so the service is reachable externally; disable debug in production
+	app.run(host="0.0.0.0", port=port, debug=False)
 
